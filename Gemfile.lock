@@ -1,3 +1,58 @@
+GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: a7cbf1b5e8caa0d537faef57c00958767b2be59f
+  branch: master
+  specs:
+    faker (2.20.0)
+      i18n (>= 1.8.11, < 2)
+
+GIT
+  remote: https://github.com/rspec/rspec-core.git
+  revision: e7c5d030966a7e8dad3e0a67c61920c4f2437c15
+  branch: master
+  specs:
+    rspec-core (3.10.0.pre)
+      rspec-support (= 3.10.0.pre)
+
+GIT
+  remote: https://github.com/rspec/rspec-expectations.git
+  revision: e63ff4765e1cd2798b02ddddad259f1104ef87a5
+  branch: master
+  specs:
+    rspec-expectations (3.10.0.pre)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (= 3.10.0.pre)
+
+GIT
+  remote: https://github.com/rspec/rspec-mocks.git
+  revision: 0a52e0a86b126b4bab94d277b2ad99a7492dc37d
+  branch: master
+  specs:
+    rspec-mocks (3.10.0.pre)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (= 3.10.0.pre)
+
+GIT
+  remote: https://github.com/rspec/rspec-rails.git
+  revision: 01704c50c146f720db914724c25681781ecefb23
+  branch: master
+  specs:
+    rspec-rails (4.1.0.pre)
+      actionpack (>= 4.2)
+      activesupport (>= 4.2)
+      railties (>= 4.2)
+      rspec-core (= 3.10.0.pre)
+      rspec-expectations (= 3.10.0.pre)
+      rspec-mocks (= 3.10.0.pre)
+      rspec-support (= 3.10.0.pre)
+
+GIT
+  remote: https://github.com/rspec/rspec-support.git
+  revision: 6447b0c2c9d1cd3e1504784fb85675ca9ae7b7c3
+  branch: master
+  specs:
+    rspec-support (3.10.0.pre)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -66,19 +121,39 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
+    bcrypt (3.1.17)
     bindex (0.8.1)
     bootsnap (1.11.1)
       msgpack (~> 1.2)
     builder (3.2.4)
+    coderay (1.1.3)
     concurrent-ruby (1.1.10)
     crass (1.0.6)
     cssbundling-rails (1.1.0)
       railties (>= 6.0.0)
+    database_cleaner (2.0.1)
+      database_cleaner-active_record (~> 2.0.0)
+    database_cleaner-active_record (2.0.1)
+      activerecord (>= 5.a)
+      database_cleaner-core (~> 2.0.0)
+    database_cleaner-core (2.0.1)
     debug (1.5.0)
       irb (>= 1.3.6)
       reline (>= 0.2.7)
+    devise (4.8.1)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0)
+      responders
+      warden (~> 1.2.3)
+    diff-lcs (1.5.0)
     digest (3.1.0)
     erubi (1.10.0)
+    factory_bot (6.2.1)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.10.0)
@@ -118,7 +193,13 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.4-x86_64-darwin)
       racc (~> 1.4)
+    orm_adapter (0.5.0)
     pg (1.3.5)
+    pry (0.14.1)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
+    pry-rails (0.3.9)
+      pry (>= 0.10.4)
     puma (5.6.4)
       nio4r (~> 2.0)
     racc (1.6.0)
@@ -154,6 +235,11 @@ GEM
     rake (13.0.6)
     reline (0.3.1)
       io-console (~> 0.5)
+    responders (3.0.1)
+      actionpack (>= 5.0)
+      railties (>= 5.0)
+    shoulda-matchers (5.1.0)
+      activesupport (>= 5.2.0)
     sprockets (4.0.3)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -171,6 +257,8 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
+    warden (1.2.9)
+      rack (>= 2.0.9)
     web-console (4.2.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -187,12 +275,23 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   cssbundling-rails
+  database_cleaner
   debug
+  devise
+  factory_bot_rails
+  faker!
   jbuilder
   jsbundling-rails
   pg (~> 1.1)
+  pry-rails
   puma (~> 5.0)
   rails (~> 7.0.1)
+  rspec-core!
+  rspec-expectations!
+  rspec-mocks!
+  rspec-rails!
+  rspec-support!
+  shoulda-matchers (~> 5.0)
   sprockets-rails
   stimulus-rails
   turbo-rails
