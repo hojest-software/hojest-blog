@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
 
+  skip_before_action :authenticate_user!, :only => [:index, :show]
+
   # GET /posts or /posts.json
   def index
     @posts = search_params.empty? ? Post.all.order(:created_at) : Post.search(search_params[:query]).order(:created_at)
@@ -63,7 +65,6 @@ class PostsController < ApplicationController
       @post = Post.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def post_params
       params.require(:post).permit(:title, :content)
     end
