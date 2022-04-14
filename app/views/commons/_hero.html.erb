@@ -1,0 +1,12 @@
+<div class="max-w-[90rem] mx-auto px-6 pt-20">
+  <div class="flex">
+    <div class="flex-grow">
+      <h1 class="text-3xl font-bold max-w-xl">
+        Written by <span class="text-[#FF5633]">Hojest</span>, experienced engineers who love building products.
+      </h1>
+    </div>  
+    <%= form_tag posts_path, method: :get, data: { turbo_frame: "post-results" } do |f| %>
+      <%= text_field_tag :query, nil, placeholder: "Search", class: "input bg-white p-3 border border-gray-500 w-96 rounded-xl" %>
+    <% end %>
+  </div>
+</div>

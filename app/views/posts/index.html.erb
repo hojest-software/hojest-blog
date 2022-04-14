@@ -1,0 +1,20 @@
+<%# <p style="color: green"><%= notice %></p>
+
+<%= render 'commons/hero' %>
+
+<div class="max-w-[90rem] mx-auto px-6 pt-20 flex">
+  <div id="posts" class="flex-grow">
+    <h2 class="text-[#777777] text-xl">Articles</h2>
+    <%= turbo_frame_tag "post-results" do %>
+      <% @posts.each do |post| %>
+        <div class="mt-9">
+          <%= render post %>
+        </div>  
+      <% end %>
+    <% end %>
+  </div>
+  <div class="border-l border-[#777777] mx-20"></div>
+  <%= render 'commons/side_bar' %>
+</div>
+
+<%# <%= link_to "New post", new_post_path %>
