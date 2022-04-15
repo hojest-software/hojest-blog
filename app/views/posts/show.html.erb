@@ -1,10 +1,7 @@
+<%= link_to "Back to posts", posts_path, class: "ml-7 mt-9 block text-gray-500 hover:underline" %>
 <div class="max-w-[90rem] mx-auto px-6 pt-20 flex">
   <div id="<%= dom_id @post %>">
-    <div class="flex">
-      <%= render 'commons/post_author_link', post: @post %>
-      <p class="mx-3"> - </p>
-      <p><%= @post.created_at %></p>
-    </div>
+    <%= render 'commons/author_date', post: @post %>
     <h1 class="font-semibold text-5xl mt-5">
       <%= @post.title %>
     </h1>

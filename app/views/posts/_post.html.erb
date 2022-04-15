@@ -1,9 +1,5 @@
 <div id="<%= dom_id post %>" class="max-w-xl">
-  <div class="flex">
-    <%= render 'commons/post_author_link', post: post %>
-    <p class="mx-3"> - </p>
-    <p><%= post.created_at %></p>
-  </div>
+  <%= render 'commons/author_date', post: post %>
   <h3 class="font-semibold text-xl mt-3">
     <%= link_to post.title, post, data: { turbo: false }, class: "hover:underline" %>
   </h3>
