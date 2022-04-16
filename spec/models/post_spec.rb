@@ -4,6 +4,7 @@ RSpec.describe Post, type: :model do
   describe 'Db table' do
     it { is_expected.to have_db_column(:title).of_type(:string) }
     it { is_expected.to have_db_column(:content).of_type(:text) }
+    it { is_expected.to have_db_column(:published).of_type(:boolean) }
   end
 
   describe 'Validations' do
@@ -13,7 +14,7 @@ RSpec.describe Post, type: :model do
   end
   
   describe 'Factory' do
-    it 'is expected to have valid facotry' do
+    it 'is expected to have valid factory' do
       user = FactoryBot.create(:user)
       expect(FactoryBot.create(:post, user: user)).to be_valid
     end

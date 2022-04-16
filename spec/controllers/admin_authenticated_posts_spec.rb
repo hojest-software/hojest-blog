@@ -2,12 +2,12 @@ require 'rails_helper'
 require_relative '../support/devise'
 
 RSpec.describe PostsController, :type => :controller  do
-  context "authenticated" do
+  context "admin authenticated" do
 
     before do
-      @user = FactoryBot.create(:user)
+      @admin = FactoryBot.create(:user, admin_role: true, user_role: false)
       @request.env['devise.mapping'] = Devise.mappings[:user]
-      sign_in @user
+      sign_in @admin
     end
 
     describe "GET posts" do
@@ -25,7 +25,7 @@ RSpec.describe PostsController, :type => :controller  do
       end
 
       describe "existing post" do
-        let!(:post) { FactoryBot.create(:post, user: @user) }
+        let!(:post) { FactoryBot.create(:post, user: @admin) }
 
         it "should return status code 200" do
           get :show, params: { id: post.id }
@@ -35,10 +35,10 @@ RSpec.describe PostsController, :type => :controller  do
     end
 
     describe "CREATE posts" do
-      before { post :index, params: { post: { title: 'Title example', content: 'Content example' } } }
+      before { post :create, params: { post: { title: 'Title example', content: 'Content example' } } }
       
-      it "should return status code 200" do
-        expect(response).to have_http_status 200
+      it "should return status code 302" do
+        expect(response).to have_http_status 302
       end
     end
 
@@ -53,20 +53,18 @@ RSpec.describe PostsController, :type => :controller  do
     describe "DELETE posts" do
       
       describe "missing post" do
-        before { delete :index }
-
         it "should return status code 200" do
-          expect(response).to have_http_status 200
+          expect { delete :destroy, params: { id: 0000 } }.to raise_error(ActiveRecord::RecordNotFound)
         end
       end
 
       describe "existing post" do
-        let!(:post) { FactoryBot.create(:post, user: @user) }
+        let!(:post) { FactoryBot.create(:post, user: @admin) }
         
-        before { delete :index, params: { id: post.id } }
+        before { delete :destroy, params: { id: post.id } }
 
-        it "should return status code 200" do
-          expect(response).to have_http_status 200
+        it "should return status code 302" do
+          expect(response).to have_http_status 302
         end
       end
     end
