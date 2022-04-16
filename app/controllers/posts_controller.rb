@@ -5,7 +5,9 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = search_params.empty? ? Post.all.order(:created_at) : Post.search(search_params[:query]).order(:created_at)
+    @posts = search_params.empty? ?
+      Post.all.order(:created_at).select(&:published) :
+      Post.search(search_params[:query]).order(:created_at)
   end
 
   # GET /posts/1 or /posts/1.json
@@ -23,11 +25,11 @@ class PostsController < ApplicationController
 
   # POST /posts or /posts.json
   def create
-    @post = Post.new(post_params)
+    @post = Post.new(post_params.merge({ user: current_user }))
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
+        format.html { redirect_to posts_url, notice: "Your post is under review." }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -51,6 +53,7 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1 or /posts/1.json
   def destroy
+    authorize! :manage, @post
     @post.destroy
 
     respond_to do |format|
