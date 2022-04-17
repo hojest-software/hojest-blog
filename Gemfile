@@ -85,3 +85,5 @@ end
 
 gem "importmap-rails", "~> 1.0"
 gem "sassc-rails"
+
+gem "tailwindcss-rails", "~> 2.0"
