@@ -2,4 +2,5 @@
 //= link_tree ../builds
 //= link fonts.css
 //= link local-time
-//= link application.css
+//= link actiontext.css
+//= link actiontextfixlist.css
