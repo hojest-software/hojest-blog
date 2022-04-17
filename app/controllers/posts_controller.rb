@@ -25,7 +25,7 @@ class PostsController < ApplicationController
 
   # POST /posts or /posts.json
   def create
-    @post = Post.new(post_params.merge({ user: current_user }))
+    @post = Post.new(post_params.merge({ user: current_user, topics: parse_topics }))
 
     respond_to do |format|
       if @post.save
@@ -69,10 +69,14 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title, :content)
+      params.require(:post).permit(:title, :content, :topics, :description)
     end
 
     def search_params
       params.permit(:query)
+    end
+
+    def parse_topics
+      params[:topics].split(',')
     end
 end
