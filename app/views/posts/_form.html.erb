@@ -11,17 +11,29 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class="my-7">
+    <%= form.label :title, class: "block" %>
+    <%= form.text_field :title, class: "input bg-white p-3 mt-3 border border-gray-300 w-full" %>
+  </div>
+  <div class="my-7">
+    <%= form.label :description, class: "block" %>
+    <%= form.text_field :description, class: "input bg-white p-3 mt-3 border border-gray-300 w-full" %>
   </div>
 
-  <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.text_area :content %>
+  <div class="my-7">
+    <div class="flex">
+      <%= form.label :topics, class: "block" %>
+      <p class="ml-3 text-gray-500">Comma separated topics. Example: Rails, Node, React</p>
+    </div>
+    <%= form.text_field :topics, class: "input bg-white p-3 mt-3 border border-gray-300 w-full" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="my-7">
+    <%= form.label :content, class: "block" %>
+    <%= form.rich_text_area :content %>
+  </div>
+
+  <div class="mt-9">
+    <%= submit_tag "Create Post", class: "bg-[#FF5633] font-semibold text-white px-5 py-3" %>
   </div>
 <% end %>

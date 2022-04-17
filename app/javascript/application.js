@@ -4,3 +4,6 @@ import './controllers';
 
 import LocalTime from 'local-time';
 LocalTime.start();
+
+import 'trix';
+import '@rails/actiontext';
