@@ -77,6 +77,6 @@ class PostsController < ApplicationController
     end
 
     def parse_topics
-      post_params[:topics].split(',').map { |topic| topic.strip }
+      post_params[:topics].nil? ? "" : post_params[:topics].split(',').map { |topic| topic.strip }
     end
 end
