@@ -6,8 +6,8 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     @posts = search_params.empty? ?
-      Post.all.order(:created_at).select(&:published) :
-      Post.search(search_params[:query]).order(:created_at)
+      Post.all.order(created_at: :desc).select(&:published) :
+      Post.search(search_params[:query]).order(created_at: :desc)
   end
 
   # GET /posts/1 or /posts/1.json
@@ -77,6 +77,6 @@ class PostsController < ApplicationController
     end
 
     def parse_topics
-      params[:topics].split(',')
+      post_params[:topics].split(',').map { |topic| topic.strip }
     end
 end
