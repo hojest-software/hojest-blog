@@ -5,11 +5,14 @@ RSpec.describe Post, type: :model do
     it { is_expected.to have_db_column(:title).of_type(:string) }
     it { is_expected.to have_db_column(:content).of_type(:text) }
     it { is_expected.to have_db_column(:published).of_type(:boolean) }
+    it { is_expected.to have_db_column(:description).of_type(:text) }
+    it { is_expected.to have_db_column(:topics).of_type(:string) }
   end
 
   describe 'Validations' do
     it { is_expected.to validate_presence_of :title }
     it { is_expected.to validate_presence_of :content }
+    it { is_expected.to validate_presence_of :description }
     it { should belong_to :user }
   end
   

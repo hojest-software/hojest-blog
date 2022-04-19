@@ -1,4 +1,4 @@
-<div id="<%= dom_id post %>" class="max-w-xl">
+<div id="<%= dom_id post %>" class="w-full lg:max-w-xl">
   <%= render 'commons/author_date', post: post %>
   <h3 class="font-semibold text-xl mt-3">
     <%= link_to post.title, post, data: { turbo: false }, class: "hover:underline" %>

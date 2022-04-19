@@ -1,6 +1,6 @@
 <%= link_to "Back to posts", posts_path, class: "ml-7 mt-9 block text-gray-500 hover:underline" %>
-<div class="max-w-[90rem] mx-auto px-6 pt-20 flex">
-  <div id="<%= dom_id @post %>" class="flex-grow">
+<div class="max-w-[90rem] mx-auto px-6 pt-20 flex flex-wrap">
+  <div id="<%= dom_id @post %>" class="flex-grow xl:border-r xl:border-[#777777]">
     <%= render 'commons/author_date', post: @post %>
     <h1 class="font-semibold text-5xl mt-5">
       <%= @post.title %>

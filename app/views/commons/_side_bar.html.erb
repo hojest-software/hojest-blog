@@ -1,6 +1,6 @@
-<div class="border-l border-[#777777] mx-20"></div>
-<div class="max-w-sm">
-  <div>
+<div class="w-full lg:max-w-sm lg:pl-20">
+  <div class="border-t border-gray-300 mt-9 lg:hidden"></div>
+  <div>  
     <h2 class="text-[#777777] text-xl my-7">About Us</h2>
     <p>
       We are a passionate team with a single objective.
@@ -9,8 +9,10 @@
   </div>
   <div>
     <h2 class="text-[#777777] text-xl my-7">Contributors</h2>
+    <turbo-frame id="contributors" src="contributors" class="flex" />
   </div>
   <div>
     <h2 class="text-[#777777] text-xl my-7">Topics</h2>
+    <turbo-frame id="topics" src="topics" class="flex gap-2 flex-wrap" />
   </div>
 </div>

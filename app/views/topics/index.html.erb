@@ -1,0 +1,5 @@
+<turbo-frame id="topics">
+  <% @topics.each do |topic| %>
+    <%= render 'commons/topic', topic: topic %>
+  <% end %>
+</turbo-frame>

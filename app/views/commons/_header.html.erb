@@ -1,8 +1,13 @@
-<div class="bg-[#F0F0F0] p-3 flex items-center">
-  <div class="flex-grow">
+<div class="bg-[#F0F0F0] p-3 flex items-center justify-between">
+  <div>
     <h3 class="font-bold text-2xl notranslate hover:underline" translate="no">
        <%= link_to "Højest", root_path%>
     </h3>
+  </div>
+  <div>
+    <% unless current_user.nil? %>
+      <%= link_to new_post_path, class: 'hover:text-gray-500' do %>Write Article<% end %>
+    <% end %>
   </div>
   <div class="pr-5 flex">
     <div class="mr-7">

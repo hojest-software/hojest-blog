@@ -1,9 +1,8 @@
-<%# <p style="color: green"><%= notice %></p>
-
 <%= render 'commons/hero' %>
 
-<div class="max-w-[90rem] mx-auto px-6 pt-20 flex">
-  <div id="posts" class="flex-grow">
+<p class="notice"><%= notice %></p>
+<div class="max-w-[90rem] mx-auto px-6 pt-20 flex flex-wrap">
+  <div id="posts" class="flex-grow lg:border-r lg:border-[#777777]">
     <h2 class="text-[#777777] text-xl">Articles</h2>
     <%= turbo_frame_tag "post-results" do %>
       <% @posts.each do |post| %>
