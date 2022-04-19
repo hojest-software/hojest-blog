@@ -2,6 +2,6 @@ class ContributorsController < ApplicationController
   skip_before_action :authenticate_user!
   
   def index
-    @contributors ||= User.where(user_role: true).map(&:name)
+    @contributors ||= Post.where(published: true).map { |p| p.user.name }.uniq
   end
 end
