@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     @posts = search_params.empty? ?
-      Post.all.order(created_at: :desc).select(&:published) :
+      Post.published.only_articles.order(created_at: :desc) :
       Post.search(search_params[:query]).order(created_at: :desc)
   end
 

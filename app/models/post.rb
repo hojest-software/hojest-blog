@@ -7,8 +7,12 @@ class Post < ApplicationRecord
   belongs_to :user
 
   has_rich_text :content
+
+  scope :only_articles, -> { where(story: false) }
+  scope :only_stories, -> { where(story: true) }
+  scope :published, -> { where(published: true) }
   
   def self.search(query)
-    where("title ILIKE ?", "%#{sanitize_sql_like(query)}%").where(published: true)
+    where("title ILIKE ?", "%#{sanitize_sql_like(query)}%").published.only_articles
   end
 end
