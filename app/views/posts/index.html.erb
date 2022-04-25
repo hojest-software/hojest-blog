@@ -2,7 +2,7 @@
 
 <div class="max-w-[90rem] mx-auto px-6 pt-20">
   <div class="flex flex-wrap">
-    <div id="posts" class="lg:border-r lg:border-[#777777] border-box">
+    <div id="posts" class="lg:border-r lg:border-[#777777] border-box flex-grow">
       <h2 class="text-[#777777] text-xl">Articles</h2>
       <%= turbo_frame_tag "post-results" do %>
         <% @posts.each_with_index do |post, index| %>
