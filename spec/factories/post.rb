@@ -4,5 +4,7 @@ FactoryBot.define do
     content { Faker::Lorem.paragraph_by_chars(number: 256)  }
     description { Faker::Lorem.paragraph_by_chars(number: 100)  }
     topics { "Rails, Node" }
+    cover_image { 'image_url' }
+    vertical_cover_image { 'image_url' }
   end
 end

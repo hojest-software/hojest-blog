@@ -7,12 +7,16 @@ RSpec.describe Post, type: :model do
     it { is_expected.to have_db_column(:published).of_type(:boolean) }
     it { is_expected.to have_db_column(:description).of_type(:text) }
     it { is_expected.to have_db_column(:topics).of_type(:string) }
+    it { is_expected.to have_db_column(:cover_image).of_type(:string) }
+    it { is_expected.to have_db_column(:vertical_cover_image).of_type(:string) }
   end
 
   describe 'Validations' do
     it { is_expected.to validate_presence_of :title }
     it { is_expected.to validate_presence_of :content }
     it { is_expected.to validate_presence_of :description }
+    it { is_expected.to validate_presence_of :cover_image }
+    it { is_expected.to validate_presence_of :vertical_cover_image }
     it { should belong_to :user }
   end
   

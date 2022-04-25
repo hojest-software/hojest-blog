@@ -35,7 +35,16 @@ RSpec.describe PostsController, :type => :controller  do
     end
 
     describe "CREATE posts" do
-      before { post :create, params: { post: { title: 'Title example', content: 'Content example', description: 'Description example' } } }
+      before { post :create, params: {
+        post: {
+          title: 'Title example',
+          content: 'Content example',
+          description: "Descrption example",
+          cover_image: 'image_url',
+          vertical_cover_image: 'image_url'
+          }
+        }
+      }
       
       it "should return status code 302" do
         expect(response).to have_http_status 302

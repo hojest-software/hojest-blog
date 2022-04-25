@@ -15,9 +15,20 @@
     <%= form.label :title, class: "block" %>
     <%= form.text_field :title, class: "input bg-white p-3 mt-3 border border-gray-300 w-full" %>
   </div>
+
   <div class="my-7">
     <%= form.label :description, class: "block" %>
     <%= form.text_field :description, class: "input bg-white p-3 mt-3 border border-gray-300 w-full" %>
+  </div>
+
+  <div class="my-7">
+    <%= form.label :cover_image, class: "block" %>
+    <%= form.text_field :cover_image, class: "input bg-white p-3 mt-3 border border-gray-300 w-full" %>
+  </div>
+
+   <div class="my-7">
+    <%= form.label :vertical_cover_image, class: "block" %>
+    <%= form.text_field :vertical_cover_image, class: "input bg-white p-3 mt-3 border border-gray-300 w-full" %>
   </div>
 
   <div class="my-7">
@@ -34,6 +45,6 @@
   </div>
 
   <div class="mt-9">
-    <%= submit_tag "Create Post", class: "bg-[#FF5633] font-semibold text-white px-5 py-3" %>
+    <%= submit_tag editing ? "Save Post" : "Create Post", class: "bg-[#FF5633] font-semibold text-white px-5 py-3" %>
   </div>
 <% end %>
