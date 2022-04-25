@@ -69,7 +69,7 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title, :content, :topics, :description)
+      params.require(:post).permit(:title, :content, :topics, :description, :cover_image, :vertical_cover_image)
     end
 
     def search_params

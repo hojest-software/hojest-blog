@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Post < ApplicationRecord
-  validates :title, :content, presence: true
+  validates :title, :content, :cover_image, :vertical_cover_image, presence: true
   validates :description, presence: true, length: { maximum: 130 }
 
   belongs_to :user
