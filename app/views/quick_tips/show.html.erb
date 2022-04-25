@@ -1,0 +1,11 @@
+<%= link_to "Back to posts", posts_path, class: "ml-7 mt-9 block text-gray-500 hover:underline" %>
+<div class="px-20 pt-20 flex">
+  <div id="<%= dom_id @quick_tip %>" class="pr-9 box-border max-w-[50rem]">
+    <h1 class="font-semibold text-5xl mt-5">
+      <%= @quick_tip.title %>
+    </h1>
+    <div class="mt-16">
+      <%= @quick_tip.content %>
+    </div>
+  </div>
+</div>

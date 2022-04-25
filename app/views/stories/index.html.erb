@@ -1,0 +1,17 @@
+<turbo-frame id="stories">
+  <div class="flex gap-3 space-evenly flex-wrap">
+    <% @stories.each do |story| %>
+      <%= link_to story, data: { turbo: false } do %>
+        <div class="flex max-w-[290px] pr-3 items-center border-r border-gray-300 last:border-0 hover:text-gray-600 hover:cursor-pointer">
+          <div class="max-w-[200px]">
+            <h3 class="font-semibold"><%= story.title %></h3>
+            <p><%= story.description %></p>
+          </div>
+          <div>
+            <%= image_tag story.cover_image, width: "100px" %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</turbo-frame>

@@ -1,18 +1,24 @@
 <%= render 'commons/hero' %>
 
-<p class="notice"><%= notice %></p>
-<div class="max-w-[90rem] mx-auto px-6 pt-20 flex flex-wrap">
-  <div id="posts" class="flex-grow lg:border-r lg:border-[#777777]">
-    <h2 class="text-[#777777] text-xl">Articles</h2>
-    <%= turbo_frame_tag "post-results" do %>
-      <% @posts.each do |post| %>
-        <div class="mt-9">
-          <%= render post %>
-        </div>  
+<div class="max-w-[90rem] mx-auto px-6 pt-20">
+  <div class="flex flex-wrap">
+    <div id="posts" class="lg:border-r lg:border-[#777777] border-box">
+      <h2 class="text-[#777777] text-xl">Articles</h2>
+      <%= turbo_frame_tag "post-results" do %>
+        <% @posts.each_with_index do |post, index| %>
+          <div class="mt-9 border-b border-gray-300 pb-7 mr-7 box-border">
+            <% if (index + 1) % 3 == 0 %>
+              <%= render "post_vertical", post: post %>
+            <% else %>
+              <%= render post %>
+            <% end %>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
+      <div class="mt-5 border-b border-gray-300 pb-5 w-full">
+        <turbo-frame id="stories" src="stories" />
+      </div>
+    </div>
+    <%= render 'commons/side_bar' %>
   </div>
-  <%= render 'commons/side_bar' %>
 </div>
-
-<%# <%= link_to "New post", new_post_path %>

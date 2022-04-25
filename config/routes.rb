@@ -6,7 +6,15 @@ Rails.application.routes.draw do
   resources :posts
 
   get 'contributors', to: 'contributors#index'
+
   get 'topics', to: 'topics#index'
+
+  get 'quick-tips', to: 'quick_tips#index'
+  get 'quick-tips/:id', to: 'quick_tips#show'
+
+  get 'stories', to: 'stories#index'
+
+  post 'newsletters', to: 'newsletters#subscribe'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
