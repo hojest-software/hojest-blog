@@ -2,20 +2,9 @@
   <div class="blok sm:flex lg:block">
     <% @quick_tips.each do |tip| %>
       <%= link_to "#{quick_tips_path}/#{tip.id}", data: { turbo: false } do %>
-        <div class="max-w-[200px] h-[150px] hover:text-gray-600 hover:cursor-pointer">
+        <div class="max-w-[200px] h-[150px] hover:text-gray-600 hover:cursor-pointer trim-text-wrapper">
           <h3 class="font-semibold text-lg mb-3"><%= tip.title %></h3>
-          <p
-            style="display: block;
-                  display: -webkit-box;
-                  margin: 0 auto;
-                  line-height: 1.4;
-                  -webkit-line-clamp: 3;
-                  -webkit-box-orient: vertical;
-                  overflow: hidden;
-                  text-overflow: ellipsis;"
-          >
-            <%= tip.content %>
-          </p>
+          <%= tip.content %>
         </div>
       <% end %>
     <% end %>
