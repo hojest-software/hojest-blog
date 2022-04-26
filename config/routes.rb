@@ -9,8 +9,7 @@ Rails.application.routes.draw do
 
   get 'topics', to: 'topics#index'
 
-  get 'quick-tips', to: 'quick_tips#index'
-  get 'quick-tips/:id', to: 'quick_tips#show'
+  resources :quick_tips, only: [:index, :show, :new, :create], path: 'quick-tips'
 
   get 'stories', to: 'stories#index'
 
