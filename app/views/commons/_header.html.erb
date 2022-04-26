@@ -7,6 +7,8 @@
   <div>
     <% unless current_user.nil? %>
       <%= link_to new_post_path, class: 'hover:text-gray-500' do %>Write Article<% end %>
+      <span> - </span>
+      <%= link_to new_quick_tip_path, class: 'hover:text-gray-500' do %>Write Quick Tip<% end %>
     <% end %>
   </div>
   <div class="pr-5 flex">

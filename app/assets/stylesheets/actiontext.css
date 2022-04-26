@@ -37,3 +37,14 @@
   padding: 0 !important;
   max-width: 100% !important;
 }
+
+.trim-text-wrapper .trix-content {
+  display: block !important;
+  display: -webkit-box !important;
+  margin: 0 auto !important;
+  line-height: 1.4 !important;
+  -webkit-line-clamp: 3 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
