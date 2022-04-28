@@ -4,7 +4,7 @@
        <%= link_to "Højest", root_path%>
     </h3>
   </div>
-  <div>
+  <div class="hidden sm:block">
     <% unless current_user.nil? %>
       <%= link_to new_post_path, class: 'hover:text-gray-500' do %>Write Article<% end %>
       <span> - </span>
@@ -12,7 +12,7 @@
     <% end %>
   </div>
   <div class="pr-5 flex">
-    <div class="mr-7">
+    <div class="mr-7 hidden sm:block">
       <% if current_user.nil? %>
 	      <%= link_to new_user_session_path, class: 'hover:text-gray-500' do %>Sign in<% end %>
       <% else %>
