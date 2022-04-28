@@ -41,6 +41,12 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1 or /posts/1.json
   def update
     respond_to do |format|
+
+      if @post.user.id != current_user.id
+        format.html { render :edit, status: :unauthorized }
+        format.json { render json: 'Fordibben', status: :unauthorized }
+      end
+
       if @post.update(post_params)
         format.html { redirect_to post_url(@post), notice: "Post was successfully updated." }
         format.json { render :show, status: :ok, location: @post }

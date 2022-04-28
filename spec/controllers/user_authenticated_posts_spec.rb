@@ -6,6 +6,7 @@ RSpec.describe PostsController, :type => :controller  do
 
     before do
       @user = FactoryBot.create(:user)
+      @another_user = FactoryBot.create(:user)
       @request.env['devise.mapping'] = Devise.mappings[:user]
       sign_in @user
     end
@@ -48,6 +49,53 @@ RSpec.describe PostsController, :type => :controller  do
       
       it "should return status code 302" do
         expect(response).to have_http_status 302
+      end
+    end
+
+    describe "UPDATE posts" do 
+      describe "missing post" do
+        it "should raise RecordNotFound" do
+          expect {
+            get :update,
+            params: {
+              id: 999999999,
+              post: {
+                title: 'Title example updated',
+                content: 'Content example updated'
+                }
+              }
+          }.to raise_error(ActiveRecord::RecordNotFound)
+        end
+      end
+
+      describe "existing and post owner" do
+        let!(:post) { FactoryBot.create(:post, user: @user) }
+
+        it "should return status code 200" do
+          get :update, params: {
+            id: post.id,
+            post: {
+              title: 'Title example updated',
+              content: 'Content example updated'
+              }
+            }
+          expect(response).to have_http_status 302
+        end
+      end
+
+      describe "existing and other user post" do
+        let!(:post) { FactoryBot.create(:post, user: @another_user) }
+
+        it "should return status code 200" do
+          get :update, params: {
+            id: post.id,
+            post: {
+              title: 'Title example updated',
+              content: 'Content example updated'
+              }
+            }
+          expect(response).to have_http_status 401
+        end
       end
     end
 

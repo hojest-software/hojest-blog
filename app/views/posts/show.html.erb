@@ -1,5 +1,5 @@
 <%= link_to "Back to posts", posts_path, class: "ml-7 mt-9 block text-gray-500 hover:underline" %>
-<div class="px-20 pt-20 flex">
+<div class="px-3 lg:px-20 pt-20 flex">
   <div id="<%= dom_id @post %>" class="flex-grow xl:border-r xl:border-[#777777] pr-9 box-border max-w-[80rem]">
     <%= render 'commons/author_date', post: @post %>
     <h1 class="font-semibold text-5xl mt-5">
